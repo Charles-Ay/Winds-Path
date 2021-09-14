@@ -26,7 +26,7 @@ namespace Winds_Path.Source.Private
         /// </summary>
         /// <param name="fileToFind">the file to find</param>
         /// <returns>the file location</returns>
-        public static string GetFilePath(string fileToFind)
+        internal static string GetFilePath(string fileToFind)
         {
             if (fileToFind.Length > 0) return RootPath + "\\" + fileToFind;
             return RootPath;
@@ -35,7 +35,7 @@ namespace Winds_Path.Source.Private
         /// <summary>
         /// //initilize the class
         /// </summary>
-        public static void Init()
+        internal static void Init()
         {
             GetRootPath();//get root text folder path
             GetRootPathParent();//parent root folder
@@ -56,7 +56,7 @@ namespace Winds_Path.Source.Private
         }
 
         /// <summary>
-        /// 
+        /// get root path
         /// </summary>
         private static void GetRootPath()
         {
@@ -74,7 +74,7 @@ namespace Winds_Path.Source.Private
         /// </summary>
         /// <param name="file"></param>
         /// <param name="fileType"> Type 1: Story <br></br>Type 2: Dialogue <br></br>Type 3: Database<br></br>Type 4: Title<br></br>Type 5: Art</param>
-        public static void AddGitFile(string file, UInt16 fileType)
+        internal static void AddGitFile(string file, UInt16 fileType)
         {
             switch (fileType)
             {
@@ -102,7 +102,7 @@ namespace Winds_Path.Source.Private
         /// <param name="timeoutMs">time till timeout</param>
         /// <param name="url">url to connect to site</param>
         /// <returns>if connected to internet</returns>
-        public static bool CheckConnection(int timeoutMs = 10000, string url = null)
+        internal static bool CheckConnection(int timeoutMs = 10000, string url = null)
         {
             try
             {
@@ -167,7 +167,7 @@ namespace Winds_Path.Source.Private
         /// </summary>
         /// <param name="subfolder">subfolder where the file is located</param>
         /// <param name="fileName">name of file to find</param>
-        public static void GetFileFromGit(string subfolder, string fileName)
+        internal static void GetFileFromGit(string subfolder, string fileName)
         {
             var wc = new WebClient();
             if (!File.Exists(GetFilePath("")))
@@ -183,7 +183,7 @@ namespace Winds_Path.Source.Private
         /// <param name="subfolder">subfolder where the file is located</param>
         /// <param name="fileName">name of file to find</param>
         /// <returns>a string containing the file text</returns>
-        public static string ReadFileFromGIT(string subfolder, string fileName)
+        internal static string ReadFileFromGIT(string subfolder, string fileName)
         {
             var wc = new WebClient();
             if (CheckConnection())
@@ -201,7 +201,7 @@ namespace Winds_Path.Source.Private
         /// delete file in directory
         /// </summary>
         /// <param name="fileName">file to delete</param>
-        public static void RemoveFile(string fileName)
+        internal static void RemoveFile(string fileName)
         {
             string[] fileList = System.IO.Directory.GetFiles(RootPath, fileName);
             foreach (string file in fileList)

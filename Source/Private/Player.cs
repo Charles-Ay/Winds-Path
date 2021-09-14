@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Winds_Path.Source.Private
 {
-    struct player
+    partial class Player
     {
-        string Name;
-    }
-    class Player
-    {
-
+        string name;
+        internal string GetPlayerName() { return name; }
+        internal void SetPlayerName(string name) { this.name = name; }
     }
 }

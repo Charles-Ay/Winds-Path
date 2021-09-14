@@ -7,6 +7,7 @@ namespace Winds_Path
 {
     class MainGame
     {
+        internal static Player p1 = new Player();
         static void Main(string[] args)
         {
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) Console.SetWindowSize(200,35);
@@ -14,6 +15,7 @@ namespace Winds_Path
             //Console.WriteLine(Console.LargestWindowHeight);
             FileEngine.Init();
             Story.IntroStory();
+            Story.Awaken();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Winds_Path
         /// <summary>
         /// Game Intro
         /// </summary>
-        public static void IntroStory()
+        internal static void IntroStory()
         {
             string hello = "*cough cough*............" +
                 "\nHello there stranger. Would you like to hear a story?(Y/N): ";
@@ -42,12 +42,36 @@ namespace Winds_Path
             Title("CompanyName.txt");
             Title("Title.txt", "green");
         }
+
+        internal static void Awaken()
+        {
+            TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken1.txt"), 45);
+            Title("KashuriSign.txt", "Dblue");
+            TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken2.txt"), 45);
+            Console.WriteLine();
+            TextDelay("Enter your name: ", 40);
+            bool valid = false;
+            MainGame.p1.SetPlayerName(Console.ReadLine());
+            while (!valid)
+            {
+                if(MainGame.p1.GetPlayerName() != "") { valid = true; }
+                else
+                {
+                    Console.ForegroundColor
+                    = ConsoleColor.Red;
+                    Console.Error.Write("Sorry I didn't hear you. Whats's your name?(Y/N): ", Console.ForegroundColor);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    MainGame.p1.SetPlayerName(Console.ReadLine());
+                }
+            }
+        }
+
         /// <summary>
         /// Print characters after delay
         /// </summary>
         /// <param name="text">text to print</param>
         /// <param name="time">time to wait between characters</param>
-        public static void TextDelay(string text, int time)
+        private static void TextDelay(string text, int time)
         {
             foreach(char letter in text)
             {
@@ -60,22 +84,26 @@ namespace Winds_Path
         /// </summary>
         /// <param name="file">file name</param>
         /// <param name="color">color to set text to</param>
-        public static void Title(string file, String color = "white")
+        private static void Title(string file, String color = "white")
         {
             switch (color)
             {
                 case "white":
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Error.WriteLine(FileEngine.ReadFileFromGIT("Title", file), Console.ForegroundColor);
-                    Console.ForegroundColor = ConsoleColor.White;//reset back to white
+                    Console.ForegroundColor = ConsoleColor.White;//reset back to whites
                     break;
                 case "green":
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Error.WriteLine(FileEngine.ReadFileFromGIT("Title", file), Console.ForegroundColor);
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
+                case "Dblue":
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.Error.WriteLine(FileEngine.ReadFileFromGIT("Title", file), Console.ForegroundColor);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
             }
-
         }
         
     }
