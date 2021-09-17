@@ -8,12 +8,13 @@ namespace Winds_Path.Source.Private
 {
     partial class Player
     {
-        string name;
-        internal string GetPlayerName() { return name; }
-        internal void SetPlayerName(string name) { this.name = name; }
+        /// <summary>
+        /// the name of the player
+        /// </summary>
+        internal string name { get; set; }
         internal Player()
         {
-            Inventory in1 = new Inventory();
+            Inventory inventory = new Inventory();
         }
     }
 }

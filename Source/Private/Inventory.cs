@@ -3,25 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json;
-using Newtonsoft;
-using Newtonsoft.Json;
-using Microsoft.CSharp;
 
 namespace Winds_Path.Source.Private
 {
     class Inventory
     {
-        public static void parse()
-        {
-           string json = FileEngine.ReadFileFromGIT("Database", "Weapon.json");
-           Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(json);
-           Console.WriteLine(myDeserializedClass.Weapons.ToString());
-        }
-    }
-
-    public class Root
-    {
-        public Weapons Weapons { get; set; }
+        /// <summary>
+        /// set the items the player owns and the amount of each item
+        /// </summary>
+        Dictionary<Object, int> ownedItems = new Dictionary<Object, int>();
     }
 }

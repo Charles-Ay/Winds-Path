@@ -54,17 +54,17 @@ namespace Winds_Path
             Console.WriteLine();
             TextDelay("Enter your name: ", 40);
             bool valid = false;
-            MainGame.p1.SetPlayerName(Console.ReadLine());
+            MainGame.p1.name = Console.ReadLine();
             while (!valid)
             {
-                if(MainGame.p1.GetPlayerName() != "") { valid = true; }
+                if(MainGame.p1.name != "") { valid = true; }
                 else
                 {
                     Console.ForegroundColor
                     = ConsoleColor.Red;
                     Console.Error.Write("Sorry I didn't hear you. Whats's your name?(Y/N): ", Console.ForegroundColor);
                     Console.ForegroundColor = ConsoleColor.White;
-                    MainGame.p1.SetPlayerName(Console.ReadLine());
+                    MainGame.p1.name = Console.ReadLine();
                 }
             }
         }
