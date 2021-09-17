@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Winds_Path.Source.Private
 {
-    class Player
+    class Inventory
     {
         /// <summary>
-        /// the name of the player
+        /// set the items the player owns and the amount of each item
         /// </summary>
-        internal string name { get; set; }
-        internal Player()
-        {
-            Inventory inventory = new Inventory();
-        }
+        Dictionary<Object, int> ownedItems = new Dictionary<Object, int>();
     }
 }
