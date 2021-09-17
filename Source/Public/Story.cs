@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Winds_Path.Source.Private;
 
-namespace Winds_Path
+namespace Winds_Path.Source.Public
 {
     class Story
     {
@@ -65,9 +65,12 @@ namespace Winds_Path
                     Console.Error.Write("Sorry I didn't hear you. Whats's your name?(Y/N): ", Console.ForegroundColor);
                     Console.ForegroundColor = ConsoleColor.White;
                     MainGame.player.name = Console.ReadLine();
+                    MainGame.player.Uppercase();
                 }
             }
-            TextDelay(ChangeTopPlayerName(FileEngine.ReadFileFromGIT("Story", "Awaken3.txt")), 45);
+            //TextDelay(ChangeTopPlayerName(FileEngine.ReadFileFromGIT("Story", "Awaken3.txt")), 45);
+            Console.WriteLine();
+            Dungeon.Welcome();
         }
 
         /// <summary>
@@ -88,7 +91,7 @@ namespace Winds_Path
         /// </summary>
         /// <param name="file">file name</param>
         /// <param name="color">color to set text to</param>
-        private static void Title(string file, String color = "white")
+        internal static void Title(string file, String color = "white")
         {
             switch (color)
             {
@@ -104,6 +107,11 @@ namespace Winds_Path
                     break;
                 case "Dblue":
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.Error.WriteLine(FileEngine.ReadFileFromGIT("Title", file), Console.ForegroundColor);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                case "Red":
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Error.WriteLine(FileEngine.ReadFileFromGIT("Title", file), Console.ForegroundColor);
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
