@@ -12,9 +12,11 @@ namespace Winds_Path.Source.Private
         /// the name of the player
         /// </summary>
         internal string name { get; set; }
+        internal int money { get; set; }
         internal Player()
         {
             Inventory inventory = new Inventory();
+            this.money = 0;
         }
     }
 }
