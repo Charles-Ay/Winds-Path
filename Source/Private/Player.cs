@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Winds_Path.Source.Private
 {
-    partial class Player
+    class Player
     {
         /// <summary>
         /// the name of the player
