@@ -22,12 +22,12 @@ namespace Winds_Path
 
             while (!valid)
             {
-                if (userChoice == "y" || userChoice == "yes") 
+                if (userChoice == "y" || userChoice == "yes")
                 {
                     Console.ForegroundColor = ConsoleColor.White;
-                    TextDelay(FileEngine.ReadFileFromGIT("Story", "Intro.txt"), 40); 
+                    TextDelay(FileEngine.ReadFileFromGIT("Story", "Intro.txt"), 40);
                     valid = true;
-                    
+
                 }
                 else if (userChoice == "n" || userChoice == "no") valid = true;
                 else
@@ -57,7 +57,7 @@ namespace Winds_Path
             MainGame.player.name = Console.ReadLine();
             while (!valid)
             {
-                if(MainGame.player.name != "") { valid = true; }
+                if (MainGame.player.name != "") { valid = true; }
                 else
                 {
                     Console.ForegroundColor
@@ -77,7 +77,7 @@ namespace Winds_Path
         /// <param name="time">time to wait between characters</param>
         private static void TextDelay(string text, int time)
         {
-            foreach(char letter in text)
+            foreach (char letter in text)
             {
                 Console.Write(letter);
                 Thread.Sleep(time);
@@ -111,7 +111,7 @@ namespace Winds_Path
         }
         private static string ChangeTopPlayerName(string s)
         {
-            s = s.Replace("[player]",MainGame.player.name);
+            s = s.Replace("[player]", MainGame.player.name);
             return s;
         }
     }
