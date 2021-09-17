@@ -48,25 +48,26 @@ namespace Winds_Path
         /// </summary>
         internal static void Awaken()
         {
-            TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken1.txt"), 45);
+            //TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken1.txt"), 45);
             Title("KashuriSign.txt", "Dblue");
-            TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken2.txt"), 45);
+            //TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken2.txt"), 45);
             Console.WriteLine();
             TextDelay("Enter your name: ", 40);
             bool valid = false;
-            MainGame.p1.name = Console.ReadLine();
+            MainGame.player.name = Console.ReadLine();
             while (!valid)
             {
-                if(MainGame.p1.name != "") { valid = true; }
+                if(MainGame.player.name != "") { valid = true; }
                 else
                 {
                     Console.ForegroundColor
                     = ConsoleColor.Red;
                     Console.Error.Write("Sorry I didn't hear you. Whats's your name?(Y/N): ", Console.ForegroundColor);
                     Console.ForegroundColor = ConsoleColor.White;
-                    MainGame.p1.name = Console.ReadLine();
+                    MainGame.player.name = Console.ReadLine();
                 }
             }
+            TextDelay(ChangeTopPlayerName(FileEngine.ReadFileFromGIT("Story", "Awaken3.txt")), 45);
         }
 
         /// <summary>
@@ -108,6 +109,10 @@ namespace Winds_Path
                     break;
             }
         }
-        
+        private static string ChangeTopPlayerName(string s)
+        {
+            s = s.Replace("[player]",MainGame.player.name);
+            return s;
+        }
     }
 }
