@@ -43,6 +43,9 @@ namespace Winds_Path
             Title("Title.txt", "green");
         }
 
+        /// <summary>
+        /// play awakening-arc script
+        /// </summary>
         internal static void Awaken()
         {
             TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken1.txt"), 45);

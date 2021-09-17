@@ -13,9 +13,13 @@ namespace Winds_Path
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) Console.SetWindowSize(200,35);
             //Console.WriteLine(Console.LargestWindowWidth);
             //Console.WriteLine(Console.LargestWindowHeight);
-            FileEngine.Init();
-            Story.IntroStory();
-            Story.Awaken();
+
+            //activate these
+            //FileEngine.Init();
+            //Story.IntroStory();
+            // Story.Awaken();
+
+            Inventory.parse();
         }
     }
 }

@@ -11,5 +11,9 @@ namespace Winds_Path.Source.Private
         string name;
         internal string GetPlayerName() { return name; }
         internal void SetPlayerName(string name) { this.name = name; }
+        internal Player()
+        {
+            Inventory in1 = new Inventory();
+        }
     }
 }
