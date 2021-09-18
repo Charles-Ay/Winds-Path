@@ -41,17 +41,15 @@ Project is: _in progress_
 ## Room for Improvement
 
 Room for improvement:
-- Needs sound.  
-- Clean code  
+- Sound
+- Code 
 - Add more story  
-- Add text images  
 
 To do:  
-- Make sound engine  
-- Create git database of items to be grabed  
-- Clean up code  
-- Make database
-- Make inventor
+- Make sound engine
+- Clean up code
+- Fix input (possibly change to readline)
+
 
 ## Acknowledgements
 Give credit here.  
