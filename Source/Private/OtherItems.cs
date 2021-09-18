@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Winds_Path.Source.Private
 {
-    internal class Item
+    public class Items
     {
-        internal string name { get; set; }
-        internal int health { get; set; }
+        public string name { get; set; }
+        public int health { get; set; }
+        public int amount { get; set; }
+        public int cost { get; set; }
     }
 
-    internal class MakeItem
+    public class MakeItem
     {
-        internal List<Item> Items { get; set; }
+        public List<Items> Items { get; set; }
     }
-    
-
 }

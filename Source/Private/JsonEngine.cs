@@ -9,19 +9,25 @@ namespace Winds_Path.Source.Private
 {
     class JsonEngine 
     {
+        internal static MakeWeapon weapon;
+        internal static MakeArmour armour;
+        internal static MakeEnemy enemy;
+        internal static MakeItem item;
         internal static void Init()
         {
             string json = FileEngine.ReadFileFromGIT("Database", "Weapon.json");//json to convert
-            MakeWeapon weapons = JsonConvert.DeserializeObject<MakeWeapon>(json);//convert json to lists
+            weapon = JsonConvert.DeserializeObject<MakeWeapon>(json);//convert json to lists
+            //string s = weapons.Weapons.bow[0].name;
+            //Console.WriteLine(weapon.Weapons.sword[0].name);
 
             json = FileEngine.ReadFileFromGIT("Database", "Armour.json");
-            MakeArmour armours = JsonConvert.DeserializeObject<MakeArmour>(json);
+            armour = JsonConvert.DeserializeObject<MakeArmour>(json);
 
             json = FileEngine.ReadFileFromGIT("Database", "Enemy.json");
-            MakeEnemy enemy = JsonConvert.DeserializeObject<MakeEnemy>(json);
-
+            enemy = JsonConvert.DeserializeObject<MakeEnemy>(json);
+             
             json = FileEngine.ReadFileFromGIT("Database", "OtherItem.json");
-            MakeItem item = JsonConvert.DeserializeObject<MakeItem>(json);
+            item = JsonConvert.DeserializeObject<MakeItem>(json);
         }
     }
 

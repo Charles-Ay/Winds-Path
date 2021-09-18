@@ -9,7 +9,8 @@ namespace Winds_Path.Source.Public
 {
     class MainGame
     {
-        internal static Player player = new Player();
+
+        internal static Player player;
         static void Main(string[] args)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) Console.SetWindowSize(200, 35);
@@ -27,10 +28,15 @@ namespace Winds_Path.Source.Public
             Console.Write("");
             FileEngine.Init();
             JsonEngine.Init();
-            Story.IntroStory();
+            CreateNewPlayer();
+            //Story.IntroStory();
             Story.Awaken();
 
             Console.WriteLine("Thanks For Playing");
+        }
+        private static void CreateNewPlayer()
+        {
+            player = new Player();
         }
     }
 }

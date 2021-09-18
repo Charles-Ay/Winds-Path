@@ -6,30 +6,44 @@ using System.Threading.Tasks;
 
 namespace Winds_Path.Source.Private
 {
-    internal class Sword
+    public class Sword
     {
-        internal string name { get; set; }
-        internal int maxdmg { get; set; }
-        internal int mindmg { get; set; }
-        internal int cost { get; set; }
+        public string name { get; set; }
+        public int maxdmg { get; set; }
+        public int mindmg { get; set; }
+        public int cost { get; set; }
     }
 
-    internal class Bow
+    public class Bow
     {
-        internal string name { get; set; }
-        internal int maxdmg { get; set; }
-        internal int mindmg { get; set; }
-        internal int cost { get; set; }
+        public string name { get; set; }
+        public int maxdmg { get; set; }
+        public int mindmg { get; set; }
+        public int cost { get; set; }
     }
 
-    internal class Weapons
+    public class CurrentWeapon
     {
-        internal List<Sword> sword { get; set; }
-        internal List<Bow> bow { get; set; }
+        public string name { get; set; }
+        public int maxdmg { get; set; }
+        public int mindmg { get; set; }
+        public int cost { get; set; }
     }
-    internal class MakeWeapon
+
+    public class Weapons
     {
-        internal Weapons Weapons { get; set; }
+        /// <summary>
+        /// Broken Sword, Novice Sword, Adept Sword
+        /// </summary>
+        public List<Sword> sword { get; set; }
+        /// <summary>
+        /// Broken Bow, Novice Bow, Adept Bow
+        /// </summary>
+        public List<Bow> bow { get; set; }
+    }
+    public class MakeWeapon
+    {
+        public Weapons Weapons { get; set; }
     }
 
 }

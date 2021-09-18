@@ -8,22 +8,25 @@ using Winds_Path.Source.Public;
 namespace Winds_Path.Source.Private
 {
     
-    internal class Enemy
+    public class Enemy
     {
-        internal string name { get; set; }
-        internal int health { get; set; }
-        internal int maxdmg { get; set; }
-        internal int mindmg { get; set; }
+        public string name { get; set; }
+        public int health { get; set; }
+        public int maxdmg { get; set; }
+        public int mindmg { get; set; }
+        public int GetDamageDone(int min, int max)
+        {
+            return Utilites.GenerateRandomNumber(min, max + 1);
+        }
 
     }
 
-    internal class MakeEnemy
+    public class MakeEnemy
     {
-        internal List<Enemy> Enemies { get; set; }
+        public List<Enemy> Enemies { get; set; }
 
-        internal Enemy GenerateRandom()
+        public Enemy GenerateRandomEnemy()
         {
-
             int rand = Utilites.GenerateRandomNumber(0, Enemies.Count());
             return Enemies[rand];
         }
