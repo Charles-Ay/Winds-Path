@@ -49,7 +49,7 @@ To do:
 - Make sound engine
 - Clean up code
 - Fix input (possibly change to readline)
-
+- Add comments
 
 ## Acknowledgements
 Give credit here.  
