@@ -58,9 +58,6 @@ namespace Winds_Path.Source.Private
         private static void FightOptions()
         {
             Console.ReadLine();//flush
-            //ShowFightOptions();
-            //int choice = Console.Read();
-            //bool valid = false;
 
             while (enemy.health > 0 && !isDead2())
             {
@@ -148,7 +145,6 @@ namespace Winds_Path.Source.Private
                 else Console.WriteLine(" # " + CalculateRareDrop() + " potions were dropped! #");
             }
             ++defeated;
-            //CreateEnemy();
             Console.ReadLine();
             PlayOptions();
         }

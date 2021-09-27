@@ -17,8 +17,6 @@ namespace Winds_Path.Source.Private
         {
             string json = FileEngine.ReadFileFromGIT("Database", "Weapon.json");//json to convert
             weapon = JsonConvert.DeserializeObject<MakeWeapon>(json);//convert json to lists
-            //string s = weapons.Weapons.bow[0].name;
-            //Console.WriteLine(weapon.Weapons.sword[0].name);
 
             json = FileEngine.ReadFileFromGIT("Database", "Armour.json");
             armour = JsonConvert.DeserializeObject<MakeArmour>(json);

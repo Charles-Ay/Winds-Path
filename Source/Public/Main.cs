@@ -29,7 +29,7 @@ namespace Winds_Path.Source.Public
             FileEngine.Init();
             JsonEngine.Init();
             CreateNewPlayer();
-            //Story.IntroStory();
+            Story.IntroStory();
             Story.Awaken();
 
             Console.WriteLine("Thanks For Playing");

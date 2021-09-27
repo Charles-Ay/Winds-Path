@@ -48,9 +48,9 @@ namespace Winds_Path.Source.Public
         /// </summary>
         internal static void Awaken()
         {
-            //TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken1.txt"), 45);
+            TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken1.txt"), 45);
             Title("KashuriSign.txt", "Dblue");
-            //TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken2.txt"), 45);
+            TextDelay(FileEngine.ReadFileFromGIT("Story", "Awaken2.txt"), 45);
             Console.WriteLine();
             TextDelay("Enter your name: ", 40);
             bool valid = false;
@@ -68,7 +68,7 @@ namespace Winds_Path.Source.Public
                     MainGame.player.Uppercase();
                 }
             }
-            //TextDelay(ChangeTopPlayerName(FileEngine.ReadFileFromGIT("Story", "Awaken3.txt")), 45);
+            TextDelay(ChangeTopPlayerName(FileEngine.ReadFileFromGIT("Story", "Awaken3.txt")), 45);
             Console.WriteLine();
             Dungeon.Welcome();
         }
