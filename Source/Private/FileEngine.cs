@@ -101,6 +101,7 @@ namespace Winds_Path.Source.Private
                     rootName = name;
                 }
             }
+            else rootName = "\\Winds-Path";
             while (!par.ToString().EndsWith(rootName))//get base directory
             {
                 par = par.Parent;
