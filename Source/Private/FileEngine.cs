@@ -12,6 +12,7 @@ namespace Winds_Path.Source.Private
 {
     class FileEngine
     {
+        private static string fileseq = "";
         /// <summary>
         /// store \text location absolute path
         /// </summary>
@@ -47,7 +48,60 @@ namespace Winds_Path.Source.Private
         private static void GetRootPathParent()
         {
             var par = new DirectoryInfo(RootPath);//get full path of current directory
-            while (!par.ToString().EndsWith("\\Winds-Path"))//get base directory
+
+            string rootName = "";
+            string secondIndex = par.ToString();
+            if (secondIndex.Contains("\\Winds-Path-"))
+            {
+
+                int index = par.ToString().IndexOf("\\Winds-Path-");
+                ++index;
+
+                string name = "";
+                while (par.ToString()[index].ToString() != "\\")
+                {
+                    if (par.ToString()[index].ToString() != " ")
+                        name += par.ToString()[index].ToString();
+                    index++;
+                }
+
+                if (name.EndsWith(")"))
+                {
+                    name = name.Remove(name.Length - 1);
+                    int count1 = 0;
+                    int count2 = 0;
+                    for (int i = 0; i < name.Length; ++i)
+                    {
+                        if (name[i] == '(') ++count1;
+                        if (name[i] == ')') ++count2;
+                    }
+
+                    if (count1 != count2)
+                    {
+                        for (int i = name.Length - 1; i > 0; --i)
+                        {
+                            if (name[i] == '(')
+                            {
+                                --count1;
+                                //name = name.Remove(name.Length - 1);
+                            }
+                            else if (name[i] == ')')
+                            {
+                                --count2;
+                                //name = name.Remove(name.Length - 1);
+                            }
+                            if (count1 != 0 || count2 != 0) name = name.Remove(name.Length - 1);
+                            else
+                            {
+                                name = name.Remove(name.Length - 1);
+                                break;
+                            }
+                        }
+                    }
+                    rootName = name;
+                }
+            }
+            while (!par.ToString().EndsWith(rootName))//get base directory
             {
                 par = par.Parent;
             }
@@ -61,8 +115,8 @@ namespace Winds_Path.Source.Private
         private static void GetRootPath()
         {
             var relativeTxtPath = Path.GetRelativePath(//get txt path using dummy paths
-            @"C:\Program Files\Dummy Folder\Winds-Path",
-            @"C:\Program Files\Dummy Folder\Winds-Path\Source\Private\Text");
+            @"C:\Program Files\Dummy Folder\" + fileseq,
+            @"C:\Program Files\Dummy Folder\" + fileseq + @"\Source\Private\Text");
             string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);//get txt relative path
 
             var par = new DirectoryInfo(path);//get full path of current directory
@@ -172,7 +226,7 @@ namespace Winds_Path.Source.Private
             var wc = new WebClient();
             if (!File.Exists(GetFilePath("")))
             {
-                if(CheckConnection())
+                if (CheckConnection())
                     wc.DownloadFile("https://raw.githubusercontent.com/Charles-Ay/Winds-Path-Files/main/" + subfolder + "/" + fileName, GetFilePath(fileName));//get file form github
             }
         }
@@ -209,15 +263,6 @@ namespace Winds_Path.Source.Private
                 System.IO.File.Delete(file);
             }
         }
-
-
-
-/*        public static void test()
-        {
-            Console.WriteLine(RootPath);
-            Console.WriteLine(ParentRootPath);
-            GetFileFromGit("Story", "Intro.txt");
-        }*/
 
     }
 }
